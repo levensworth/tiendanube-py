@@ -1,15 +1,15 @@
-tiendanube-python
-=================
+tiendanube-py
+=============
 
-.. image:: https://travis-ci.org/catalanojuan/tiendanube-python.png?branch=master   
-   :target: https://travis-ci.org/catalanojuan/tiendanube-python
+.. image:: https://travis-ci.org/jobiols/tiendanube-py.svg?branch=master   
+   :target: https://travis-ci.org/jobiols/tiendanube-py
 
 TiendaNube API Python Client.
 
 Install
 -------
 
-Just ``pip install tiendanube``.
+Just ``pip install tiendanube-py``.
 
 Usage
 -----
