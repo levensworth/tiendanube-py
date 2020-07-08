@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import datetime
 import json
 
@@ -13,7 +12,7 @@ def _get_value(val):
     return val
 
 
-class Resource(object):
+class Resource():
 
     def __init__(self, api_client, store_id):
         self.store_id = store_id
@@ -40,7 +39,7 @@ class ListResource(Resource):
         extra = {k:_get_value(v) for k,v in filters.items()}
         if fields:
             extra['fields'] = fields
-        return bunchify(json.loads(self._make_request(self.resource_name, extra=extra).content))
+        return bunchify(json.loads(self._make_request(self.resource_name, extra=extra).content.decode('utf-8')))
 
     def add(self, resource_dict):
         return bunchify(json.loads(self._make_request(self.resource_name, data=resource_dict, verb='post').text))
@@ -48,6 +47,11 @@ class ListResource(Resource):
     def update(self, resource_update_dict):
         res_id = str(resource_update_dict['id'])
         return bunchify(json.loads(self._make_request(self.resource_name, resource_id=res_id, data=resource_update_dict, verb='put').text))
+
+    def delete(self, resource_delete_dict):
+        res_id = str(resource_delete_dict['id'])
+        return bunchify(json.loads(self._make_request(self.resource_name, resource_id=res_id, verb='delete').text))
+
 
 class ListSubResource(ListResource):
 
@@ -80,7 +84,18 @@ class ListSubResource(ListResource):
         )
 
     def add(self, subresource_dict):
-        raise NotImplementedError('Sub resource add is not yet supported.')
+        return bunchify(json.loads(self._make_request(
+            self.resource_name,
+            resource_id=str(self.resource_id),
+            subresource=self.subresource,
+            data=subresource_dict,
+            verb='post').text))
 
     def update(self, subresource_update_dict):
-        raise NotImplementedError('Sub resource update is not yet supported.')
+        return bunchify(json.loads(self._make_request(
+            self.resource_name,
+            resource_id=str(self.resource_id),
+            subresource=self.subresource,
+            subresource_id=subresource_update_dict['id'],
+            data=subresource_update_dict,
+            verb='put').text))
