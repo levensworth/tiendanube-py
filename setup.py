@@ -24,7 +24,6 @@ setup(
     author_email='jorge.obiols@gmail.com',
 
     install_requires=[
-        "bunch==1.0.1",
         "furl==2.1.0",
         "mock==3.0.5",
         "pytz==2020.1",

@@ -3,7 +3,7 @@ import datetime
 import json
 import unittest
 
-from bunch import bunchify
+from tiendanube.resources.bunch import bunchify
 from mock import Mock, patch
 from pytz import utc
 

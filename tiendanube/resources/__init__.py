@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
-from bunch import bunchify
+from tiendanube.resources.bunch import bunchify
 
 from .base import ListResource, Resource
 from .decorators import subresources
