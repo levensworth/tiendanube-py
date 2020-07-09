@@ -1,41 +1,36 @@
-# -*- coding: utf-8 -*-
 import os
 from setuptools import setup
+
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 setup(
-    name = 'tiendanube',
-    packages = [
+    name='tiendanube',
+    packages=[
         'tiendanube',
         'tiendanube.resources',
     ],
-    version = '1.1',
-    description = '',
-    license = 'MIT',
-    long_description = read('README.rst'),
-    url = 'https://github.com/catalanojuan/tiendanube-python',
-    download_url = 'https://github.com/catalanojuan/tiendanube-python/tarball/1.1',
+    version='1.1',
+    description='',
+    license='MIT',
+    long_description=read('README.rst'),
+    url='https://github.com/jobiols/tiendanube-py',
+    download_url='https://github.com/jobiols/tiendanube-py/tarball/1.1',
 
 
-    author = 'Juan Catalano',
-    author_email = 'catalanojuan@gmail.com',
+    author='Jorge Obiols',
+    author_email='jorge.obiols@gmail.com',
 
-    install_requires = [
-        "argparse==1.2.1",
-        "bunch==1.0.1",
-        "furl==0.3.4",
-        "ipython==1.0.0",
-        "mock==1.0.1",
-        "orderedmultidict==0.7.1",
-        "py==1.4.15",
-        "pytz==2013b",
-        "requests==2.20.0",
-        "wsgiref==0.1.2",
+    install_requires=[
+        "furl==2.1.0",
+        "mock==3.0.5",
+        "pytz==2020.1",
+        "requests==2.24.0",
     ],
 
-    classifiers = (
+    classifiers=(
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
