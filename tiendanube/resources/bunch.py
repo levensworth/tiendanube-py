@@ -197,7 +197,8 @@ class Bunch(dict):
             (*) Invertible so long as collection contents are each repr-invertible.
         """
         keys = self.keys()
-        keys.sort()
+        # TODO: check if this is needed
+        # keys.sort()
         args = ', '.join(['%s=%r' % (key, self[key]) for key in keys])
         return '%s(%s)' % (self.__class__.__name__, args)
     
